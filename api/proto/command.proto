@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package forge.protocol;
+
+option go_package = "forge/api/pb";
+
+// 协议号
+enum CommandID {
+  COMMAND_ID_INVALID = 0;
+
+  COMMAND_ID_C2L_LOGIN = 1;
+};

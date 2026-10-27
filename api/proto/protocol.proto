@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package forge.protocol;
+
+option go_package = "forge/api/pb";
+
+import "command.proto";
+
+// 消息类型枚举
+enum MessageKind {
+  MESSAGEKIND_UNSPECIFIED = 0;
+  MESSAGEKIND_REQUEST = 1;
+  MESSAGEKIND_RESPONSE = 2;
+  MESSAGEKIND_NOTIFY = 3;
+};
+
+// 消息头
+message MessageHeader {
+  CommandID cmd_id = 1; // 协议号
+  MessageKind kind = 2; // 消息类型
+  uint64 request_id = 3; // 请求ID
+  uint64 uid = 4; // uid 如果有
+  uint64 session_id = 5; // session id 如果有
+}
+
+// 消息结构定义
+message Message {
+  MessageHeader header = 1; // 消息头
+  bytes payload = 2; // 荷载
+};

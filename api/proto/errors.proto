@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package forge.protocol;
+
+option go_package = "forge/api/pb";
+
+// 错误码
+enum ErrorCode {
+  ERROR_CODE_OK = 0;
+  ERROR_CODE_FAILD = 1;
+};
