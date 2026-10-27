@@ -331,6 +331,14 @@ Makefile 只调用 `scripts/gen.sh`。该脚本先调用 `scripts/proto.sh` 递�
 make proto
 ```
 
+生成协议和 Command 代码后，构建 `cmd/...` 下所有已实现的可执行入口：
+
+```bash
+make build
+```
+
+`build` 依赖 `gen`，构建产物按入口名写入 `bin/`。例如 `cmd/gencmd` 生成 `bin/gencmd`；后续 `cmd/gateway` 实现 Go 入口后会自动生成 `bin/gateway`。`bin/` 不纳入版本管理。
+
 输出文件遵循：
 
 ```text
