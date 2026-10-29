@@ -15,7 +15,7 @@
 | oneof | 小写下划线 | `message_body` |
 | enum 类型 | 大驼峰 | `MessageKind` |
 | enum 值 | 大写下划线，并带枚举类型前缀 | `MESSAGE_KIND_REQUEST` |
-| service | 大驼峰 | `GatewayService` |
+| service | 大驼峰并使用 `Service` 后缀 | `AuthService` |
 | rpc 方法 | 大驼峰 | `GetSession` |
 
 不要在 proto 字段中使用 `requestId` 或 `RequestID`。重复字段使用复数，例如 `repeated uint64 user_ids`。

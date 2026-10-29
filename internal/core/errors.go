@@ -16,5 +16,5 @@ type PanicError struct {
 
 // Error 实现 Error 接口
 func (e *PanicError) Error() string {
-	return fmt.Sprintf("[Router] command execute panic: key=%s, value=%v", e.Key, e.Value)
+	return fmt.Sprintf("panic: key=%s, value=%v", e.Key, e.Value)
 }
