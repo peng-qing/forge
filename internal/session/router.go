@@ -60,7 +60,7 @@ type Router struct {
 }
 
 // NewRouter 构造函数
-func NewRouter(idBegin, idEnd pb.CommandID, slowThreshold time.Duration, opts ...options.WrapperOptions[Router]) *Router {
+func NewRouter(idBegin, idEnd pb.CommandID, slowThreshold time.Duration, opts ...options.Option[Router]) *Router {
 	if idBegin > idEnd {
 		idBegin, idEnd = idEnd, idBegin
 	}
@@ -72,8 +72,8 @@ func NewRouter(idBegin, idEnd pb.CommandID, slowThreshold time.Duration, opts ..
 		slowThreshold: slowThreshold,
 	}
 
-	for _, optFunc := range opts {
-		optFunc(router)
+	for _, opt := range opts {
+		opt.Apply(router)
 	}
 
 	return router
